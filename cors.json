@@ -1,0 +1,23 @@
+[
+  {
+    "origin": ["*"],
+    "method": ["GET", "POST", "PUT", "DELETE", "HEAD"],
+    "maxAgeSeconds": 3600,
+    "responseHeader": [
+      "Content-Type",
+      "Content-Length",
+      "Content-Disposition",
+      "Authorization",
+      "X-Goog-Storage-Class",
+      "X-Goog-Meta-*",
+      "X-Firebase-Storage-Version",
+      "X-Firebase-Storage-Upload-Id",
+      "X-Goog-Upload-Protocol",
+      "X-Goog-Upload-Status",
+      "X-Goog-Upload-Chunk-Index",
+      "X-Goog-Upload-Command",
+      "X-Goog-Upload-Offset",
+      "X-Goog-Upload-Size-Received"
+    ]
+  }
+]

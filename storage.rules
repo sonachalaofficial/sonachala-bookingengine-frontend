@@ -1,0 +1,41 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Payment Screenshots - TESTING RULES (Allow all authenticated users)
+    // TODO: Restrict in production
+    match /paymentScreenshots/{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Payment Proofs (legacy path) - Keep for backward compatibility
+    match /paymentProofs/{userId}/{bookingId}/{fileName} {
+      allow create: if request.auth != null 
+        && request.auth.uid == userId
+        && request.resource.contentType.matches('image/.*')
+        && request.resource.size < 3 * 1024 * 1024;
+      
+      allow read: if request.auth != null;
+      
+      allow update, delete: if request.auth.token.admin == true 
+        || request.auth.uid == userId;
+    }
+
+    // Property Images
+    match /propertyImages/{fileName} {
+      allow read: if true;
+      allow write: if request.auth.token.admin == true;
+    }
+
+    // User Profile Images
+    match /users/{userId}/{fileName} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Default - deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
