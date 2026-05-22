@@ -16,6 +16,9 @@ import YourBooking from "./pages/HotelStaysPages/YourBooking";
 import Profile from "./pages/UserProfile/Profile";
 import MyBookings from "./pages/UserProfile/MyBookings";
 import HelpAndSupport from "./pages/HelpAndSupport";
+
+import Contact from "./pages/newpages/contact";
+
 import About from "./pages/About";
 import HourlyStay from "./pages/HourlyStayPages/HourlyStay";
 import HourlyStayRoomDetails from "./pages/HourlyStayPages/HourlyStayRoomDetails";
@@ -38,6 +41,7 @@ import EventForm from "./pages/newpages/EventForm";
 import CabForm from "./pages/newpages/CabForm";
 import HolidayForm from "./pages/newpages/HolidayForm";
 import ForexForm from "./pages/newpages/ForexForm";
+// import contact from "./pages/newpages/contact";
 
 import SupportForm from "./pages/newpages/SupportForm";
 import Searchbookings from "./pages/newpages/Searchbookings";
@@ -150,6 +154,7 @@ function App() {
                 </ProtectedRoute>
               } />
               <Route path="/help-And-Support" element={<HelpAndSupport />} />
+              
               <Route path="hourly-stay-room-details" element={<HourlyStayRoomDetails />} />
               <Route path="hourly-reservation" element={<HourlyStayReservation />} />
               <Route path="/hourly-successful" element={<HourlyStayBookingSuccessfull />} />
@@ -166,6 +171,7 @@ function App() {
               <Route path="/Holiday-form" element={<HolidayForm />} />
               <Route path="/Forex-form" element={<ForexForm />} />
               <Route path="/Support-form" element={<SupportForm />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/Searchbookings" element={<Searchbookings />} />
               <Route path="/CustomerSignin" element={<CustomerSignin />} />
               <Route path="/SignupForm" element={<SignupForm />} />

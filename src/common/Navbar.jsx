@@ -175,7 +175,8 @@ function Navbar() {
                                 { icon: "fa-car", label: "Car", path: "/Cab-form" },
                                 { icon: "fa-calendar-alt", label: "Events", path: "/Event-form" },
                                 { icon: "fa-lightbulb", label: "Solutions", path: "/Agent" },
-                                { icon: "fa-tools", label: "Support", path: "/Support-form" }
+                                { icon: "fa-tools", label: "Support", path: "/Support-form" },
+                                { icon: "fa-tools", label: "Contactus", path: "/contact" }
                             ].map((item, idx) => {
                                 const active = isActive(item.path, item.dropdown);
                                 const isDropdownActive = activeDropdown === idx;
