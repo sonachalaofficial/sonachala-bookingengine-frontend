@@ -37,7 +37,7 @@ const Contact = () => {
               <span>Email :</span>
 
               <a
-                href="mailto:reservations@sonachala.com"
+                href="mailto:reservations@sonachalastay.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -45,7 +45,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                reservations@sonachalastay.com
               </a>
             </div>
 
@@ -168,7 +168,7 @@ const Contact = () => {
               EMAIL -
 
               <a
-                href="mailto:reservations@sonachala.com"
+                href="mailto:reservations@sonachalastay.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -176,7 +176,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                reservations@sonachalastay.com
               </a>
             </div>
 
@@ -231,7 +231,7 @@ const Contact = () => {
               {" , "}
 
               <a
-                href="mailto:reservations@sonachala.com"
+                href="mailto:reservations@sonachalastay.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -239,7 +239,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                reservations@sonachalastay.com
               </a>
             </div>
 
@@ -262,7 +262,7 @@ const Contact = () => {
               }}
             >
               <a
-                href="https://www.sonachala.com"
+                href="https://www.sonachalastay.com"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -270,7 +270,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                www.sonachala.com
+                www.sonachalastay.com
               </a>
             </div>
 
@@ -315,7 +315,7 @@ const Contact = () => {
               Email -
 
               <a
-                href="mailto:reservations@sonachala.com"
+                href="mailto:reservations@sonachalastay.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -323,7 +323,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                reservations@sonachalastay.com
               </a>
             </div>
 
@@ -344,7 +344,7 @@ const Contact = () => {
               }}
             >
               <a
-                href="https://www.sonachala.com"
+                href="https://www.sonachalastay.com"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -353,7 +353,7 @@ const Contact = () => {
                   fontSize: "17px",
                 }}
               >
-                www.sonachala.com
+                www.sonachalastay.com
               </a>
             </div>
 
@@ -398,7 +398,7 @@ const Contact = () => {
               Email -
 
               <a
-                href="mailto:reservations@sonachala.com"
+                href="mailto:reservations@sonachalastay.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -406,7 +406,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                reservations@sonachalastay.com
               </a>
             </div>
           </div>

@@ -223,7 +223,7 @@ const Footer = () => {
                 maxWidth: "520px",
               }}
             >
-              Sonachala Technologies private limited provides smart hotel
+              Hrify Technologies private limited provides smart hotel
               technology solutions including a powerful booking engine,
               channel management, and revenue optimization tools to help hotels
               increase direct bookings and maximize revenue.
@@ -304,7 +304,7 @@ const Footer = () => {
                 lineHeight: "24px",
               }}
             >
-              Sonachala Technologies private limited
+              Hrify Technologies private limited
             </div>
 
             <div
@@ -359,7 +359,7 @@ const Footer = () => {
               }}
             >
               <a href="mailto:info@sonachala.com" style={linkStyle}>
-                info@sonachala.com
+                info@sonachalastay.com
               </a>
             </div>
 
@@ -437,7 +437,7 @@ const Footer = () => {
                 fontWeight: "400",
               }}
             >
-              Sonachala.Com
+              Sonachalastay.Com
             </h1>
 
             <div
@@ -570,12 +570,12 @@ const Footer = () => {
         }}
       >
         <div style={{ marginBottom: "8px", fontWeight: "500" }}>
-          Sonachala Technologies private limited
+          Hrify Technologies private limited
         </div>
 
         Copyright 2026 |
         <Link to="/" style={{ color: "#ffffff", textDecoration: "none" }}>
-          {" "}www.sonachala.com{" "}
+          {" "}www.sonachalastay.com{" "}
         </Link>
         | All rights reserved.
       </div>
