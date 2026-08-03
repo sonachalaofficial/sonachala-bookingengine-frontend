@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom"
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import Home from "./pages/Home"; // Changed from HomePage
 import Stay from "./pages/Stay"; // New integrated Stay page
 import LoginPage from "./pages/LoginPage";
@@ -16,6 +17,9 @@ import YourBooking from "./pages/HotelStaysPages/YourBooking";
 import Profile from "./pages/UserProfile/Profile";
 import MyBookings from "./pages/UserProfile/MyBookings";
 import HelpAndSupport from "./pages/HelpAndSupport";
+import CorporateEnquiry from "./pages/CorporateEnquiry";
+import HotelDevelopment from "./pages/HotelDevelopment";
+import SonachalaForBusiness from "./pages/SonachalaForBusiness";
 
 import Contact from "./pages/newpages/contact";
 
@@ -59,6 +63,12 @@ import Upi from "./pages/paymentpage/Upi/Upi";
 import Cards from "./pages/paymentpage/Cards/Cards";
 import BookingPopup from "./pages/paymentpage/Bookingpopup";
 import ScrollToTop from "./common/ScrollToTop";
+
+// Brand detail pages
+import SonachalaBrand from "./pages/brands/SonachalaBrand";
+import SonachalaPremiumBrand from "./pages/brands/SonachalaPremiumBrand";
+import SonachalaEliteBrand from "./pages/brands/SonachalaEliteBrand";
+import SonachalaNestBrand from "./pages/brands/SonachalaNestBrand";
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -127,6 +137,12 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/map" element={<MapScreen />} />
 
+              {/* Brand Detail Pages */}
+              <Route path="/brands/sonachala" element={<SonachalaBrand />} />
+              <Route path="/brands/sonachala-premium" element={<SonachalaPremiumBrand />} />
+              <Route path="/brands/sonachala-elite" element={<SonachalaEliteBrand />} />
+              <Route path="/brands/sonachala-nest" element={<SonachalaNestBrand />} />
+
               {/* Protected Routes - Require Authentication */}
               <Route path="/create-plan/:hotelId" element={
                 <ProtectedRoute>
@@ -179,6 +195,10 @@ function App() {
               <Route path="/PmsConnect" element={<PmsConnect />} />
               <Route path="/ReserveBackend" element={<ReserveBackend />} />
               <Route path="/Revenuemanage" element={<Revenuemanage />} />
+              <Route path="/corporate-enquiry" element={<CorporateEnquiry />} />
+              <Route path="/hotel-development" element={<HotelDevelopment />} />
+              <Route path="/sonachala-for-business" element={<SonachalaForBusiness />} />
+ 
 
               {/* Payment Routes */}
               <Route path="/PaymentPage" element={

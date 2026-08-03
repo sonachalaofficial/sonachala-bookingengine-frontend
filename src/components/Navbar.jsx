@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Navbar.css"; // Import the new CSS file
 import LogoutPopup from "./LogoutPopup";
-import logo from "../assets/image/componetimsges/logo.png";
+import logo from "../assets/image/componetimsges/logo1.png";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -76,12 +76,62 @@ function Navbar() {
     return null;
   }
 
+  // Primary items - always visible directly on desktop navbar
+  // Flights / Bus / Trains / Car are grouped under "Travel"
+  // Corporate Enquiry / Sonachala for Business / Hotel Development are grouped under "Business"
+  // Technology / Hospitality are grouped under "Solutions"
+  const primaryItems = [
+    { icon: "fa-home", label: "Home", path: "/" },
+    {
+      icon: "fa-hotel",
+      label: "Stays",
+      path: "/hotels",
+    },
+    {
+      icon: "fa-route",
+      label: "Travel",
+      path: "/travel",
+      dropdown: [
+        { icon: "fa-plane", label: "Flights", path: "/flight-form" },
+        { icon: "fa-bus", label: "Bus", path: "/Bus-form" },
+        { icon: "fa-train", label: "Trains", path: "/trains" },
+        { icon: "fa-car", label: "Car", path: "/Cab-form" },
+      ]
+    },
+    { icon: "fa-info-circle", label: "About Us", path: "/about" },
+    {
+      icon: "fa-briefcase",
+      label: "Business",
+      path: "/business",
+      dropdown: [
+        { icon: "fa-briefcase", label: "Corporate Enquiry", path: "/corporate-enquiry" },
+        { icon: "fa-building", label: "Sonachala for Business", path: "/sonachala-for-business" },
+        { icon: "fa-city", label: "Hotel Development", path: "/hotel-development" },
+      ]
+    },
+    {
+      icon: "fa-lightbulb",
+      label: "Solutions",
+      path: "/solutions",
+      dropdown: [
+        { icon: "fa-microchip", label: "Technology", path: "https://www.sonachala.in/", external: true },
+        { icon: "fa-concierge-bell", label: "Hospitality", path: "https://sonachalaofficial.github.io/Sonachala-hospitalities/", external: true }, // TODO: update path once destination is decided
+      ]
+    },
+    { icon: "fa-tools", label: "Contact Us", path: "/contact" },
+  ];
+
+  // Full flat list used for the mobile menu (order preserved, all items visible)
+  const mobileItems = [
+    ...primaryItems,
+  ];
+
   return (
     <>
       <nav style={{
         position: "relative",
         zIndex: "9999",
-        background: "var(--navbar-bg, linear-gradient(135deg, rgba(3, 138, 94, 0.95) 0%, rgba(2, 107, 72, 0.95) 100%))",
+        background: "linear-gradient(135deg, rgba(3, 138, 94, 0.95) 0%, rgba(2, 107, 72, 0.95) 100%)",
         backdropFilter: "blur(10px)",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08)",
         fontFamily: "'Poppins', 'Inter', sans-serif",
@@ -111,50 +161,7 @@ function Navbar() {
 
             {/* Navigation - Desktop */}
             <div className="d-none d-lg-flex align-items-center gap-1 mx-auto">
-              {[
-                { icon: "fa-home", label: "Home", path: "/" },
-                {
-                  icon: "fa-hotel",
-                  label: "Stays",
-                  path: "/hotels",
-                  dropdown: [
-                    { label: "Hotels", path: "/hotels" },
-                    { label: "HomeStays", path: "/Homestays" }
-                  ]
-                },
-                {
-                  icon: "fa-plane",
-                  label: "Flights",
-                  path: "/flight-form",
-                  dropdown: [
-                    { label: "Domestic Flights", path: "/flight-form" },
-                    { label: "International Flights", path: "/flight-form" }
-                  ]
-                },
-                {
-                  icon: "fa-bus",
-                  label: "Bus",
-                  path: "/Bus-form",
-                  dropdown: [
-                    { label: "Bus Search", path: "/Bus-form" },
-                    { label: "Bus Rentals", path: "/Bus-form" }
-                  ]
-                },
-                {
-                  icon: "fa-train",
-                  label: "Trains",
-                  path: "/trains",
-                  dropdown: [
-                    { label: "Train Search", path: "/trains" },
-                    { label: "PNR Status", path: "/trains" }
-                  ]
-                },
-                { icon: "fa-car", label: "Car", path: "/Cab-form" },
-                { icon: "fa-calendar-alt", label: "Events", path: "/Event-form" },
-                { icon: "fa-lightbulb", label: "Solutions", path: "/Agent" },
-                { icon: "fa-tools", label: "Support", path: "/Support-form" },
-                { icon: "fa-tools", label: "Contactus", path: "/contact" }
-              ].map((item, idx) => {
+              {primaryItems.map((item, idx) => {
                 const active = isActive(item.path, item.dropdown);
                 const isDropdownActive = activeDropdown === idx;
 
@@ -201,13 +208,32 @@ function Navbar() {
                     <ul className="custom-dropdown-menu">
                       {item.dropdown.map((sub, sIdx) => (
                         <li key={sIdx}>
-                          <Link
-                            className={`custom-dropdown-item ${location.pathname === sub.path ? 'active-item' : ''}`}
-                            to={sub.path}
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {sub.label}
-                          </Link>
+                          {sub.external ? (
+                            <a
+                              className="custom-dropdown-item"
+                              href={sub.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {sub.icon && (
+                                <i className={`fas ${sub.icon} me-2`} style={{ color: "#038A5E", opacity: 0.8 }}></i>
+                              )}
+                              {sub.label}
+                              <i className="fas fa-arrow-up-right-from-square ms-2" style={{ fontSize: "0.7rem", opacity: 0.6 }}></i>
+                            </a>
+                          ) : (
+                            <Link
+                              className={`custom-dropdown-item ${location.pathname === sub.path ? 'active-item' : ''}`}
+                              to={sub.path}
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {sub.icon && (
+                                <i className={`fas ${sub.icon} me-2`} style={{ color: "#038A5E", opacity: 0.8 }}></i>
+                              )}
+                              {sub.label}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -328,7 +354,8 @@ function Navbar() {
                     transition: "all 0.3s ease",
                     letterSpacing: "0.03em",
                     textTransform: "uppercase",
-                    whiteSpace: "nowrap"
+                    whiteSpace: "nowrap",
+                    textDecoration: "none"
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.transform = "translateY(-2px)";
@@ -383,49 +410,7 @@ function Navbar() {
             boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
           }}>
             <div className="d-flex flex-column gap-2">
-              {[
-                { icon: "fa-home", label: "Home", path: "/" },
-                {
-                  icon: "fa-hotel",
-                  label: "Stays",
-                  path: "/hotels",
-                  dropdown: [
-                    { label: "Hotels", path: "/hotels" },
-                    { label: "HomeStays", path: "/Homestays" }
-                  ]
-                },
-                {
-                  icon: "fa-plane",
-                  label: "Flights",
-                  path: "/flight-form",
-                  dropdown: [
-                    { label: "Domestic Flights", path: "/flight-form" },
-                    { label: "International Flights", path: "/flight-form" }
-                  ]
-                },
-                {
-                  icon: "fa-bus",
-                  label: "Bus",
-                  path: "/Bus-form",
-                  dropdown: [
-                    { label: "Bus Search", path: "/Bus-form" },
-                    { label: "Bus Rentals", path: "/Bus-form" }
-                  ]
-                },
-                {
-                  icon: "fa-train",
-                  label: "Trains",
-                  path: "/trains",
-                  dropdown: [
-                    { label: "Train Search", path: "/trains" },
-                    { label: "PNR Status", path: "/trains" }
-                  ]
-                },
-                { icon: "fa-car", label: "Car", path: "/Cab-form" },
-                { icon: "fa-calendar-alt", label: "Events", path: "/Event-form" },
-                { icon: "fa-lightbulb", label: "Solutions", path: "/Agent" },
-                { icon: "fa-tools", label: "Support", path: "/Support-form" }
-              ].map((item, idx) => {
+              {mobileItems.map((item, idx) => {
                 const isDropdownActive = activeDropdown === idx;
 
                 if (item.dropdown) {
@@ -466,17 +451,34 @@ function Navbar() {
 
                       {isDropdownActive && (
                         <div className="ps-5 pe-3 py-2" style={{ animation: "fadeInUp 0.3s ease-out" }}>
-                          {item.dropdown.map((sub, sIdx) => (
-                            <Link
-                              key={sIdx}
-                              to={sub.path}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="d-block py-2 text-white text-decoration-none"
-                              style={{ opacity: 0.9, fontSize: "0.95rem" }}
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
+                          {item.dropdown.map((sub, sIdx) =>
+                            sub.external ? (
+                              <a
+                                key={sIdx}
+                                href={sub.path}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="d-block py-2 text-white text-decoration-none"
+                                style={{ opacity: 0.9, fontSize: "0.95rem" }}
+                              >
+                                {sub.icon && <i className={`fas ${sub.icon} me-2`} style={{ opacity: 0.8 }}></i>}
+                                {sub.label}
+                                <i className="fas fa-arrow-up-right-from-square ms-2" style={{ fontSize: "0.7rem", opacity: 0.6 }}></i>
+                              </a>
+                            ) : (
+                              <Link
+                                key={sIdx}
+                                to={sub.path}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="d-block py-2 text-white text-decoration-none"
+                                style={{ opacity: 0.9, fontSize: "0.95rem" }}
+                              >
+                                {sub.icon && <i className={`fas ${sub.icon} me-2`} style={{ opacity: 0.8 }}></i>}
+                                {sub.label}
+                              </Link>
+                            )
+                          )}
                         </div>
                       )}
                     </div>

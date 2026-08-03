@@ -63,6 +63,38 @@ const Stay = () => {
     const [showMapModal, setShowMapModal] = useState(false)
     const [showSortModal, setShowSortModal] = useState(false)
     const [adminCharges, setAdminCharges] = useState(DEFAULT_ADMIN_CHARGES)
+    const [showDestinationDropdown, setShowDestinationDropdown] = useState(false)
+    const [filteredDistricts, setFilteredDistricts] = useState([])
+    const destinationRef = useRef(null)
+
+    const TAMIL_NADU_DISTRICTS = [
+        "Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore",
+        "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram",
+        "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Mayiladuthurai",
+        "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pondicherry", "Pudukkottai",
+        "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi",
+        "Thanjavur", "Theni", "Thoothukudi", "Tiruchirappalli", "Tirunelveli",
+        "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur",
+        "Vellore", "Viluppuram", "Virudhunagar",
+    ]
+
+    const handleDestinationChange = (e) => {
+        const value = e.target.value
+        setSearchLocation(value)
+        if (value.trim() === "") {
+            setFilteredDistricts(TAMIL_NADU_DISTRICTS)
+        } else {
+            setFilteredDistricts(
+                TAMIL_NADU_DISTRICTS.filter((d) => d.toLowerCase().includes(value.toLowerCase()))
+            )
+        }
+        setShowDestinationDropdown(true)
+    }
+
+    const handleSelectDistrict = (district) => {
+        setSearchLocation(district)
+        setShowDestinationDropdown(false)
+    }
 
     const facilityOptions = [
         { name: "Wi-Fi", icon: FaWifi },
@@ -111,42 +143,49 @@ const Stay = () => {
         setRooms(roomsParam)
         updateGuests(adultsParam, childrenParam, roomsParam)
 
-        const fp = flatpickr(datePickerRef.current, {
-            mode: "range",
-            dateFormat: "Y-m-d",
-            minDate: "today",
-            maxDate: new Date(Date.now() + 420 * 24 * 60 * 60 * 1000),
-            defaultDate: [checkInParam, checkOutParam],
-            onChange: (selectedDates, dateStr) => {
-                if (selectedDates.length === 2) {
-                    const [checkin, checkout] = selectedDates.map((date) => {
-                        const year = date.getFullYear()
-                        const month = String(date.getMonth() + 1).padStart(2, "0")
-                        const day = String(date.getDate()).padStart(2, "0")
-                        return `${year}-${month}-${day}`
-                    })
+        // The date-picker input was removed along with the search card,
+        // so only initialize flatpickr if the ref is actually attached to a DOM node.
+        const fp = datePickerRef.current
+            ? flatpickr(datePickerRef.current, {
+                mode: "range",
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                maxDate: new Date(Date.now() + 420 * 24 * 60 * 60 * 1000),
+                defaultDate: [checkInParam, checkOutParam],
+                onChange: (selectedDates, dateStr) => {
+                    if (selectedDates.length === 2) {
+                        const [checkin, checkout] = selectedDates.map((date) => {
+                            const year = date.getFullYear()
+                            const month = String(date.getMonth() + 1).padStart(2, "0")
+                            const day = String(date.getDate()).padStart(2, "0")
+                            return `${year}-${month}-${day}`
+                        })
 
-                    setDates(`${checkin} - ${checkout}`)
-                    localStorage.setItem("checkIn", checkin)
-                    localStorage.setItem("checkOut", checkout)
-                }
-            },
-            onClose: (selectedDates, dateStr) => {
-                if (selectedDates.length === 2) {
-                    const [checkin, checkout] = selectedDates.map((date) => {
-                        const year = date.getFullYear()
-                        const month = String(date.getMonth() + 1).padStart(2, "0")
-                        const day = String(date.getDate()).padStart(2, "0")
-                        return `${year}-${month}-${day}`
-                    })
-                    setDates(`${checkin} - ${checkout}`)
-                }
-            },
-        })
+                        setDates(`${checkin} - ${checkout}`)
+                        localStorage.setItem("checkIn", checkin)
+                        localStorage.setItem("checkOut", checkout)
+                    }
+                },
+                onClose: (selectedDates, dateStr) => {
+                    if (selectedDates.length === 2) {
+                        const [checkin, checkout] = selectedDates.map((date) => {
+                            const year = date.getFullYear()
+                            const month = String(date.getMonth() + 1).padStart(2, "0")
+                            const day = String(date.getDate()).padStart(2, "0")
+                            return `${year}-${month}-${day}`
+                        })
+                        setDates(`${checkin} - ${checkout}`)
+                    }
+                },
+            })
+            : null
 
         const handleClickOutside = (event) => {
             if (guestsDropdownRef.current && !guestsDropdownRef.current.contains(event.target)) {
                 setShowGuestsDropdown(false)
+            }
+            if (destinationRef.current && !destinationRef.current.contains(event.target)) {
+                setShowDestinationDropdown(false)
             }
         }
 
@@ -220,26 +259,21 @@ const Stay = () => {
         }
     }
 
-    // Filter properties by location - only show Tiruvannamalai properties
+    // Filter properties by location - matches against the hotel's city or
+    // property address so any district (Tiruvannamalai, Pondicherry, Vellore,
+    // etc.) shows only the hotels that actually belong to it.
     const filterPropertiesByLocation = (properties, location) => {
         if (!location || location.trim() === "") {
             return properties
         }
-        
+
         const searchLocationLower = location.toLowerCase().trim()
-        
-        // Only show properties if the search location is Tiruvannamalai (or variations)
-        const isTiruvannamalaiSearch = searchLocationLower.includes("tiruvannamalai") || 
-                                     searchLocationLower.includes("thiruvannamalai") ||
-                                     searchLocationLower.includes("tvm") ||
-                                     searchLocationLower.includes("annamalai")
-        
-        if (isTiruvannamalaiSearch) {
-            return properties
-        } else {
-            // For any other location, return empty array (show nothing)
-            return []
-        }
+
+        return properties.filter((property) => {
+            const city = (property.city || "").toLowerCase()
+            const address = (property["Property Address"] || "").toLowerCase()
+            return city.includes(searchLocationLower) || address.includes(searchLocationLower)
+        })
     }
 
     const fetchRoomDetails = async (collectionName, hotelId) => {
@@ -453,86 +487,6 @@ const Stay = () => {
     return (
         <div className="hotel-page-container">
             <div className="container-fluid px-3 px-md-5">
-
-                {/* Modern Search Section */}
-                <section className="search-section">
-                    <div className="container p-0">
-                        <form id="bookingForm" onSubmit={handleSubmit} className="search-form-row">
-                            <div className="search-input-group">
-                                <div className="search-input-wrapper">
-                                    <i className="fas fa-map-marker-alt search-icon"></i>
-                                    <input
-                                        type="text"
-                                        className="search-input"
-                                        placeholder="Where are you going?"
-                                        value={searchLocation}
-                                        onChange={(e) => setSearchLocation(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="search-input-group">
-                                <div className="search-input-wrapper">
-                                    <i className="fas fa-calendar-alt search-icon"></i>
-                                    <input
-                                        type="text"
-                                        className="search-input"
-                                        placeholder="Check-in - Check-out"
-                                        value={dates}
-                                        ref={datePickerRef}
-                                        readOnly
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="search-input-group">
-                                <div className="search-input-wrapper" onClick={handleGuestsClick} style={{ cursor: 'pointer' }}>
-                                    <i className="fas fa-user search-icon"></i>
-                                    <input
-                                        type="text"
-                                        className="search-input"
-                                        placeholder="Guests & Rooms"
-                                        value={guests}
-                                        readOnly
-                                        style={{ cursor: 'pointer' }}
-                                    />
-                                </div>
-
-                                {showGuestsDropdown && (
-                                    <div className="guest-dropdown" ref={guestsDropdownRef}>
-                                        <div className="guest-counter-row">
-                                            <span>Adults</span>
-                                            <div className="d-flex align-items-center gap-3">
-                                                <button type="button" className="counter-btn" onClick={() => decrementValue(setAdults, adults, 1)} disabled={adults <= 1}>-</button>
-                                                <span className="fw-bold">{adults}</span>
-                                                <button type="button" className="counter-btn" onClick={() => incrementValue(setAdults, adults, 30)}>+</button>
-                                            </div>
-                                        </div>
-                                        <div className="guest-counter-row">
-                                            <span>Children</span>
-                                            <div className="d-flex align-items-center gap-3">
-                                                <button type="button" className="counter-btn" onClick={() => decrementValue(setChildren, children, 0)} disabled={children <= 0}>-</button>
-                                                <span className="fw-bold">{children}</span>
-                                                <button type="button" className="counter-btn" onClick={() => incrementValue(setChildren, children, 10)}>+</button>
-                                            </div>
-                                        </div>
-                                        <div className="guest-counter-row">
-                                            <span>Rooms</span>
-                                            <div className="d-flex align-items-center gap-3">
-                                                <button type="button" className="counter-btn" onClick={() => decrementValue(setRooms, rooms, 1)} disabled={rooms <= 1}>-</button>
-                                                <span className="fw-bold">{rooms}</span>
-                                                <button type="button" className="counter-btn" onClick={() => incrementValue(setRooms, rooms, 30)}>+</button>
-                                            </div>
-                                        </div>
-                                        <button type="button" className="apply-btn" onClick={handleDone}>Apply</button>
-                                    </div>
-                                )}
-                            </div>
-
-                            <button type="submit" className="search-btn">Search</button>
-                        </form>
-                    </div>
-                </section>
 
                 {/* Breadcrumb Navigation */}
                 <nav aria-label="breadcrumb" className="breadcrumb-nav">

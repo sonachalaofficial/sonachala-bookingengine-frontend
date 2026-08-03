@@ -97,6 +97,37 @@ body {
     background: var(--primary-hover);
 }
 
+/* --- Destination Dropdown --- */
+.destination-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 8px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    z-index: 1000;
+    margin-top: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.destination-option {
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #1f2937;
+    transition: background-color 0.15s ease;
+}
+
+.destination-option:hover {
+    background: #f3f4f6;
+}
+
 /* --- Guest Dropdown --- */
 .guest-dropdown {
     position: absolute;

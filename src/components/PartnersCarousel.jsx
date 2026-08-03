@@ -113,7 +113,7 @@ const PartnersCarousel = () => {
           color: "#7f8c8d",
           fontStyle: "italic"
         }}>
-          Trusted by Industry Leaders Worldwide
+          Trusted by Pan India Worldwide
         </p>
 
         <div style={{

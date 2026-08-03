@@ -181,7 +181,7 @@
 // };
 
 // export default Footer;
-import img1 from "../assets/image/componetimsges/logo.png";
+import img1 from "../assets/image/componetimsges/logo1.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -359,7 +359,7 @@ const Footer = () => {
               }}
             >
               <a href="mailto:info@sonachala.com" style={linkStyle}>
-                info@sonachalastay.com
+                info@sonachala.com
               </a>
             </div>
 
@@ -437,7 +437,7 @@ const Footer = () => {
                 fontWeight: "400",
               }}
             >
-              Sonachalastay.Com
+              Sonachala.Com
             </h1>
 
             <div
@@ -575,7 +575,7 @@ const Footer = () => {
 
         Copyright 2026 |
         <Link to="/" style={{ color: "#ffffff", textDecoration: "none" }}>
-          {" "}www.sonachalastay.com{" "}
+          {" "}www.sonachala.com{" "}
         </Link>
         | All rights reserved.
       </div>

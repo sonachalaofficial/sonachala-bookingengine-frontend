@@ -1,11 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import HomeAdvertisingSlider from "../common/HomeAdvertisingSlider";
 import PartnersCarousel from "../common/PartnersCarousel";
-import img1 from "../assets/image/homeimg/home-hero.jpg";
+import BrandTiers from "../common/BrandTiers";
+import hero1 from "../assets/assets/image/homeimg/hero-section1.jpg";
+import hero2 from "../assets/assets/image/homeimg/hero-section2.jpg";
+
 import "./Home.css";
 
+const TAMIL_NADU_DISTRICTS = [
+  "Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore",
+  "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram",
+  "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Mayiladuthurai",
+  "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Pondicherry",
+  "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi",
+  "Thanjavur", "Theni", "Thiruchendur", "Thoothukudi", "Tiruchirappalli", "Tirunelveli",
+  "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur",
+  "Vellore", "Viluppuram", "Virudhunagar",
+];
+
 const Home = () => {
+  const heroImages = [hero1, hero2];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const [destination, setDestination] = useState("");
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
@@ -13,6 +30,11 @@ const Home = () => {
   const [children, setChildren] = useState(0);
   const [showGuestDropdown, setShowGuestDropdown] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
+
+  // Destination dropdown state
+  const [showDestinationDropdown, setShowDestinationDropdown] = useState(false);
+  const [filteredDistricts, setFilteredDistricts] = useState(TAMIL_NADU_DISTRICTS);
+  const destinationRef = useRef(null);
 
   useEffect(() => {
     // Initialize date inputs with default values
@@ -26,6 +48,25 @@ const Home = () => {
 
     setCheckInDate(formatDate(today));
     setCheckOutDate(formatDate(tomorrow));
+  }, []);
+
+  // Hero background auto-slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Close destination dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (destinationRef.current && !destinationRef.current.contains(event.target)) {
+        setShowDestinationDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const navigate = useNavigate(); // Add hook
@@ -72,19 +113,38 @@ const Home = () => {
     return diffDays;
   };
 
+  const handleDestinationChange = (e) => {
+    const value = e.target.value;
+    setDestination(value);
+    if (value.trim() === "") {
+      setFilteredDistricts(TAMIL_NADU_DISTRICTS);
+    } else {
+      setFilteredDistricts(
+        TAMIL_NADU_DISTRICTS.filter((d) =>
+          d.toLowerCase().includes(value.toLowerCase())
+        )
+      );
+    }
+    setShowDestinationDropdown(true);
+  };
+
+  const handleSelectDistrict = (district) => {
+    setDestination(district);
+    setShowDestinationDropdown(false);
+  };
+
   return (
     <div className="home-container">
       <main>
         {/* Professional OTA Hero Section */}
-        <section className="hero-section mt-0"
-        style={{
-    backgroundImage: `url(${img1})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat"
-  }}
-        
-        >
+        <section className="hero-section mt-0">
+          {heroImages.map((img, index) => (
+            <div
+              key={index}
+              className={`hero-bg-slide ${index === currentSlide ? "active" : ""}`}
+              style={{ backgroundImage: `url(${img})` }}
+            ></div>
+          ))}
           <div className="hero-overlay"></div>
           <div className="container hero-content-wrapper">
             <div className="row">
@@ -92,24 +152,47 @@ const Home = () => {
                 <h1 className="hero-title animate-fade-in">
                   Discover Your Perfect Stay
                 </h1>
-                <p className="hero-subtitle animate-fade-in-delayed">
-                  Experience spiritual bliss and luxury in Tiruvannamalai
-                </p>
-
+                
                 {/* Enhanced Search Bar Section */}
                 <div className="hero-search-container animate-slide-up">
                   <form onSubmit={handleSearch} className="search-bar-wrapper">
-                    <div className="search-input-group flex-grow-1">
+                    <div
+                      className="search-input-group flex-grow-1 position-relative"
+                      ref={destinationRef}
+                    >
                       <i className="fas fa-map-marker-alt"></i>
                       <input
                         type="text"
                         placeholder="Where are you going?"
                         className="search-input"
                         value={destination}
-                        onChange={(e) => setDestination(e.target.value)}
-                        onFocus={(e) => e.target.placeholder = ""}
-                        onBlur={(e) => e.target.placeholder = "Where are you going?"}
+                        onChange={handleDestinationChange}
+                        onFocus={() => {
+                          setFilteredDistricts(TAMIL_NADU_DISTRICTS);
+                          setShowDestinationDropdown(true);
+                        }}
+                        autoComplete="off"
                       />
+                      {showDestinationDropdown && (
+                        <div className="destination-dropdown">
+                          {filteredDistricts.length > 0 ? (
+                            filteredDistricts.map((district) => (
+                              <div
+                                key={district}
+                                className="destination-option"
+                                onClick={() => handleSelectDistrict(district)}
+                              >
+                                <i className="fas fa-map-marker-alt me-2"></i>
+                                {district}
+                              </div>
+                            ))
+                          ) : (
+                            <div className="destination-option text-muted">
+                              No matching district found
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <div className="search-divider d-none d-md-block"></div>
                     <div className="search-input-group position-relative">
@@ -278,6 +361,9 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Brand Tiers Section */}
+        <BrandTiers />
+
         <div className="additional-content">
           <div className="container">
             {/* <HomeAdvertisingSlider /> */}
@@ -291,15 +377,80 @@ const Home = () => {
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
         .animate-fade-in-delayed { animation: fadeIn 0.8s ease-out 0.3s forwards; opacity: 0; }
-       
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
+        .hero-section {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-bg-slide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0;
+          transition: opacity 1.2s ease-in-out;
+          z-index: 0;
+        }
+
+        .hero-bg-slide.active {
+          opacity: 1;
+        }
+
+        .hero-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+        }
+
+        .hero-content-wrapper {
+          position: relative;
+          z-index: 2;
+        }
+
         .animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; opacity: 0; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Destination Dropdown Styles */
+        .destination-dropdown {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          border-radius: 12px;
+          padding: 8px;
+          box-shadow: var(--shadow-lg);
+          border: 1px solid var(--border-color);
+          z-index: 1000;
+          margin-top: 8px;
+          max-height: 280px;
+          overflow-y: auto;
+          text-align: left;
+          animation: dropdownSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .destination-option {
+          padding: 10px 14px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 0.95rem;
+          color: #1f2937;
+          transition: background-color 0.15s ease;
+        }
+
+        .destination-option:hover {
+          background: #f3f4f6;
+        }
 
         /* Enhanced Search Form Styles */
         .date-input {

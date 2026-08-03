@@ -1,0 +1,82 @@
+.hd-page {
+  --hd-green: #0f7a4c;
+  --hd-green-dark: #0a5c3a;
+  --hd-gold: #d4a94c;
+}
+
+.hd-hero {
+  min-height: 460px;
+  background: linear-gradient(
+      rgba(15, 122, 76, 0.75),
+      rgba(10, 92, 58, 0.75)
+    ),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200")
+      center/cover no-repeat;
+}
+
+.hd-heart {
+  color: #ffffff;
+}
+
+.hd-btn-light {
+  background: #ffffff;
+  color: var(--hd-green-dark);
+  font-weight: 600;
+  padding: 0.65rem 1.75rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+.hd-btn-light:hover {
+  background: #f2f2f2;
+  color: var(--hd-green-dark);
+}
+
+.hd-btn-primary {
+  background: var(--hd-green);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.5rem;
+}
+.hd-btn-primary:hover {
+  background: var(--hd-green-dark);
+  color: #fff;
+}
+
+.hd-stat-icon {
+  font-size: 1.8rem;
+  color: var(--hd-green);
+}
+
+.hd-stat-value {
+  font-size: 1.6rem;
+  color: var(--hd-green-dark);
+}
+
+.hd-models-bg {
+  background: #f4f8f6;
+}
+
+.hd-model-card {
+  border-radius: 0.75rem;
+  border-top: 3px solid var(--hd-green) !important;
+}
+
+.hd-model-title {
+  color: var(--hd-green-dark);
+}
+
+.hd-form-section {
+  background: #fff;
+}
+
+.hd-callback-panel {
+  background: #fbeee0;
+}
+
+.hd-form-heading {
+  color: var(--hd-green-dark);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}

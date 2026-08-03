@@ -78,6 +78,12 @@ body {
     margin-bottom: 0;
 }
 
+/* Right-aligned variant for dropdowns near the navbar's right edge (e.g. "More") */
+.custom-dropdown-menu.dropdown-end {
+    left: auto;
+    right: 0;
+}
+
 /* Bridge to prevent closing when moving from button to menu */
 .custom-dropdown-menu::before {
     content: '';

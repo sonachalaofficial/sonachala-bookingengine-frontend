@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Navbar.css"; // Import the new CSS file
 import LogoutPopup from "./LogoutPopup";
-import logo from "../assets/image/componetimsges/logo.png";
+import logo from "../assets/image/componetimsges/logo1.png";
 
 function Navbar() {
     const navigate = useNavigate();

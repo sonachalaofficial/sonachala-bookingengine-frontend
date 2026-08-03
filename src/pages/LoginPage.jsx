@@ -4,7 +4,6 @@ import { useAuth } from "../contexts/AuthContext"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs"
-import { FcGoogle } from "react-icons/fc"
 import styles from "../styles/LoginPage.module.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -13,7 +12,7 @@ function LoginPage() {
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
-  const { currentUser, signInWithGoogle, signInWithEmail } = useAuth()
+  const { currentUser, signInWithEmail } = useAuth()
 
   useEffect(() => {
     if (currentUser) {
@@ -34,17 +33,6 @@ function LoginPage() {
       } else {
         toast.error("Login failed. Please check your credentials.")
       }
-    }
-  }
-
-  const handleGoogleSignIn = async () => {
-    try {
-      await signInWithGoogle()
-      toast.success("Google sign-in successful!")
-      navigate("/")
-    } catch (error) {
-      toast.error("Google sign-in failed. Please try again.")
-      console.error(error)
     }
   }
 
@@ -89,19 +77,6 @@ function LoginPage() {
               </button>
             </div>
           </form>
-
-          <div className={styles.line}></div>
-
-          <div className={`${styles.field} ${styles.mediaOptions}`}>
-            <button
-              onClick={handleGoogleSignIn}
-              className="btn btn-outline-light w-100 d-flex align-items-center justify-content-center"
-              style={{ borderColor: "#198754", color: "#198754",backgroundColor:"#198754" }}
-            >
-              <FcGoogle className="me-2 m-1" />
-              <span style={{color:"white"}} >Login with Google</span>
-            </button>
-          </div>
         </div>
       </div>
       <ToastContainer position="top-center" />
@@ -109,4 +84,3 @@ function LoginPage() {
   )
 }
 export default LoginPage
-

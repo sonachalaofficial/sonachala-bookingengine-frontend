@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const Contact = () => {
@@ -37,7 +36,7 @@ const Contact = () => {
               <span>Email :</span>
 
               <a
-                href="mailto:reservations@sonachalastay.com"
+                href="mailto:reservations@sonachala.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -45,7 +44,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachalastay.com
+                reservations@sonachala.com
               </a>
             </div>
 
@@ -168,7 +167,7 @@ const Contact = () => {
               EMAIL -
 
               <a
-                href="mailto:reservations@sonachalastay.com"
+                href="mailto:reservations@sonachala.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -176,7 +175,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachalastay.com
+                reservations@sonachala.com
               </a>
             </div>
 
@@ -231,7 +230,7 @@ const Contact = () => {
               {" , "}
 
               <a
-                href="mailto:reservations@sonachalastay.com"
+                href="mailto:reservations@sonachala.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -239,7 +238,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachalastay.com
+                reservations@sonachala.com
               </a>
             </div>
 
@@ -262,7 +261,7 @@ const Contact = () => {
               }}
             >
               <a
-                href="https://www.sonachalastay.com"
+                href="https://www.sonachala.com"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -270,7 +269,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                www.sonachalastay.com
+                www.sonachala.com
               </a>
             </div>
 
@@ -315,7 +314,7 @@ const Contact = () => {
               Email -
 
               <a
-                href="mailto:reservations@sonachalastay.com"
+                href="mailto:reservations@sonachala.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -323,7 +322,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachalastay.com
+                reservations@sonachala.com
               </a>
             </div>
 
@@ -344,7 +343,7 @@ const Contact = () => {
               }}
             >
               <a
-                href="https://www.sonachalastay.com"
+                href="https://www.sonachala.com"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -353,7 +352,7 @@ const Contact = () => {
                   fontSize: "17px",
                 }}
               >
-                www.sonachalastay.com
+                www.sonachala.com
               </a>
             </div>
 
@@ -398,7 +397,7 @@ const Contact = () => {
               Email -
 
               <a
-                href="mailto:reservations@sonachalastay.com"
+                href="mailto:reservations@sonachala.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -406,7 +405,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachalastay.com
+                reservations@sonachala.com
               </a>
             </div>
           </div>
@@ -585,4 +584,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
