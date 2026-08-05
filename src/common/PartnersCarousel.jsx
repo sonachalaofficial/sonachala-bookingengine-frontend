@@ -55,7 +55,25 @@ import lg44 from "../assets/assets/image/OurPartners/lg44.png";
 import lg45 from "../assets/assets/image/OurPartners/lg45.png";
 import lg46 from "../assets/assets/image/OurPartners/lg46.png";
 import lg47 from "../assets/assets/image/OurPartners/lg47.png";
+import lg48 from "../assets/assets/image/OurPartners/lg48.png";
+import lg49 from "../assets/assets/image/OurPartners/lg49.png";
+import lg50 from "../assets/assets/image/OurPartners/lg50.png";
+import lg51 from "../assets/assets/image/OurPartners/lg51.png";
+import lg52 from "../assets/assets/image/OurPartners/lg52.png";
+import lg53 from "../assets/assets/image/OurPartners/lg53.png";
+import lg54 from "../assets/assets/image/OurPartners/lg54.png";
 
+import lg55 from "../assets/assets/image/OurPartners/lg55.png";
+import lg56 from "../assets/assets/image/OurPartners/lg56.png";
+import lg57 from "../assets/assets/image/OurPartners/lg57.png";
+import lg58 from "../assets/assets/image/OurPartners/lg58.png";
+import lg59 from "../assets/assets/image/OurPartners/lg59.png";
+import lg60 from "../assets/assets/image/OurPartners/lg60.png";
+import lg61 from "../assets/assets/image/OurPartners/lg61.png";
+import lg63 from "../assets/assets/image/OurPartners/lg63.png";
+import lg64 from "../assets/assets/image/OurPartners/lg64.png";
+import lg65 from "../assets/assets/image/OurPartners/lg65.png";
+import lg66 from "../assets/assets/image/OurPartners/lg66.png";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -70,7 +88,8 @@ const PartnersCarousel = () => {
     lg18, lg19, lg20, lg21, lg22, lg23, lg24, lg25,
     lg26, lg27, lg28, lg29, lg30, lg31, lg32, lg33,
     lg34, lg35, lg36, lg37, lg38, lg39, lg40, lg41,
-    lg42, lg43, lg44, lg45, lg46, lg47
+    lg42, lg43, lg44, lg45, lg46, lg47,lg48,lg49,lg50,lg51,lg52,lg53,lg54,lg55,lg56,lg57,lg58,
+    lg59, lg60, lg61,lg63, lg64,lg65, lg66
   ];
 
   const settings = {
