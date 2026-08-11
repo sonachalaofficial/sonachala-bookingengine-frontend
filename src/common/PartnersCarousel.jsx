@@ -74,6 +74,34 @@ import lg63 from "../assets/assets/image/OurPartners/lg63.png";
 import lg64 from "../assets/assets/image/OurPartners/lg64.png";
 import lg65 from "../assets/assets/image/OurPartners/lg65.png";
 import lg66 from "../assets/assets/image/OurPartners/lg66.png";
+import lg67 from "../assets/assets/image/OurPartners/lg67.png";
+import lg68 from "../assets/assets/image/OurPartners/lg68.png";
+import lg69 from "../assets/assets/image/OurPartners/lg69.png";
+import lg70 from "../assets/assets/image/OurPartners/lg70.png";
+import lg71 from "../assets/assets/image/OurPartners/lg71.png";
+import lg72 from "../assets/assets/image/OurPartners/lg72.png";
+import lg73 from "../assets/assets/image/OurPartners/lg73.png";
+import lg74 from "../assets/assets/image/OurPartners/lg74.png";
+import lg75 from "../assets/assets/image/OurPartners/lg75.png";
+import lg76 from "../assets/assets/image/OurPartners/lg76.png";
+import lg77 from "../assets/assets/image/OurPartners/lg77.png";
+import lg78 from "../assets/assets/image/OurPartners/lg78.png";
+import lg79 from "../assets/assets/image/OurPartners/lg79.png";
+import lg80 from "../assets/assets/image/OurPartners/lg80.png";
+import lg81 from "../assets/assets/image/OurPartners/lg81.png";
+import lg82 from "../assets/assets/image/OurPartners/lg82.png";
+import lg83 from "../assets/assets/image/OurPartners/lg83.png";
+import lg84 from "../assets/assets/image/OurPartners/lg84.png";
+import lg85 from "../assets/assets/image/OurPartners/lg85.png";
+import lg86 from "../assets/assets/image/OurPartners/lg86.png";
+import lg87 from "../assets/assets/image/OurPartners/lg87.png";
+import lg88 from "../assets/assets/image/OurPartners/lg88.png";
+import lg89 from "../assets/assets/image/OurPartners/lg89.png";
+import lg90 from "../assets/assets/image/OurPartners/lg90.png";
+import lg91 from "../assets/assets/image/OurPartners/lg91.png";
+import lg92 from "../assets/assets/image/OurPartners/lg92.png";
+import lg93 from "../assets/assets/image/OurPartners/lg93.png";
+import lg94 from "../assets/assets/image/OurPartners/lg94.png";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -89,7 +117,8 @@ const PartnersCarousel = () => {
     lg26, lg27, lg28, lg29, lg30, lg31, lg32, lg33,
     lg34, lg35, lg36, lg37, lg38, lg39, lg40, lg41,
     lg42, lg43, lg44, lg45, lg46, lg47,lg48,lg49,lg50,lg51,lg52,lg53,lg54,lg55,lg56,lg57,lg58,
-    lg59, lg60, lg61,lg63, lg64,lg65, lg66
+    lg59, lg60, lg61,lg63, lg64,lg65, lg66,lg67,lg68,lg69,lg70,lg71,lg72,lg73,lg74,lg75,lg76,lg77,lg78,lg79,
+    lg80, lg81, lg82, lg83, lg84, lg85, lg86, lg87, lg88, lg89, lg90, lg91, lg92, lg93, lg94
   ];
 
   const settings = {
@@ -144,24 +173,31 @@ const PartnersCarousel = () => {
       </div>
 
       {/* Slider */}
-      <div className="bg-light rounded-4 shadow-lg p-4">
+       <div 
+  className="rounded-4 shadow-lg p-4" 
+  style={{ 
+    background: "#ffffff",
+    border: "2px solid #86efac"
+  }}
+>
         <Slider {...settings}>
           {partners.map((logo, index) => (
             <div key={index} className="px-3">
               <div
                 className="mt-2 mb-2 bg-white rounded-4 d-flex align-items-center justify-content-center"
                 style={{
-                  height: "160px",
+                  height: "190px",
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                  transition: "transform 0.4s ease"
+                  transition: "transform 0.4s ease",
+                  overflow: "hidden"
                 }}
               >
                 <img
                   src={logo}
                   alt={`Client Logo ${index + 1}`}
                   style={{
-                    maxWidth: "auto",
-                    maxHeight: "auto",
+                    maxWidth: "190px",
+                    maxHeight: "150px",
                     objectFit: "contain"
                   }}
                 />

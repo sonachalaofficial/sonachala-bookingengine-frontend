@@ -135,7 +135,8 @@ const PartnersCarousel = () => {
                 style={{
                   height: "160px",
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                  transition: "transform 0.4s ease"
+                  transition: "transform 0.4s ease",
+                  overflow: "hidden"          
                 }}
               >
                 <img
