@@ -20,6 +20,7 @@ import HelpAndSupport from "./pages/HelpAndSupport";
 import CorporateEnquiry from "./pages/CorporateEnquiry";
 import HotelDevelopment from "./pages/HotelDevelopment";
 import SonachalaForBusiness from "./pages/SonachalaForBusiness";
+import Solutions from "./pages/Solutions";
 
 import Contact from "./pages/newpages/contact";
 
@@ -198,6 +199,7 @@ function App() {
               <Route path="/corporate-enquiry" element={<CorporateEnquiry />} />
               <Route path="/hotel-development" element={<HotelDevelopment />} />
               <Route path="/sonachala-for-business" element={<SonachalaForBusiness />} />
+              <Route path="/solutions" element={<Solutions />} />
  
 
               {/* Payment Routes */}

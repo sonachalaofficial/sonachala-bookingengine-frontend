@@ -115,7 +115,7 @@ function Navbar() {
       path: "/solutions",
       dropdown: [
         { icon: "fa-microchip", label: "Technology", path: "https://www.sonachala.in/", external: true },
-        { icon: "fa-concierge-bell", label: "Hospitality", path: "https://sonachalaofficial.github.io/Sonachala-hospitalities/", external: true }, // TODO: update path once destination is decided
+        { icon: "fa-concierge-bell", label: "Hospitality", path: "https://hospitality.sonachala.com/", external: true },
       ]
     },
     { icon: "fa-tools", label: "Contact Us", path: "/contact" },
