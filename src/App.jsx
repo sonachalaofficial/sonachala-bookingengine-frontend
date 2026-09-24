@@ -42,6 +42,7 @@ import Listyourhotel from "./pages/newpages/Listyourhotel";
 import Agreementform from "./pages/newpages/Agreementform";
 import Flightform from "./pages/newpages/FlightForm";
 import BusForm from "./pages/newpages/BusForm";
+import TrainForm from "./pages/newpages/TrainForm";
 import EventForm from "./pages/newpages/EventForm";
 import CabForm from "./pages/newpages/CabForm";
 import HolidayForm from "./pages/newpages/HolidayForm";
@@ -183,6 +184,8 @@ function App() {
               <Route path="/Agreement-form" element={<Agreementform />} />
               <Route path="/flight-form" element={<Flightform />} />
               <Route path="/Bus-form" element={<BusForm />} />
+              <Route path="/trains" element={<TrainForm />} />
+              <Route path="/Train-form" element={<TrainForm />} />
               <Route path="/Event-form" element={<EventForm />} />
               <Route path="/Cab-form" element={<CabForm />} />
               <Route path="/Holiday-form" element={<HolidayForm />} />

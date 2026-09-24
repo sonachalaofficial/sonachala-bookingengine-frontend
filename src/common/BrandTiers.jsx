@@ -30,7 +30,7 @@ const brands = [
     path: "/brands/sonachala-elite",
   },
   {
-    name: "Namma Spot",
+    name: "Nanban Rooms",
     tagline: "Budget-friendly, youth-focused stays",
     image: ySpotLogo,
     description:

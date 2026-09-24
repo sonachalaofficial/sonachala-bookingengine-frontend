@@ -44,7 +44,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                jayakrishnan@sonachala.com
               </a>
             </div>
 
@@ -100,7 +100,7 @@ const Contact = () => {
             >
               <span style={{ fontWeight: "700" }}>Reg. Office :</span>
 
-              <span> Hrify Technologies pvt ltd.</span>
+              <span> Sonachala Hospitality pvt ltd.</span>
             </div>
 
             <div
@@ -175,7 +175,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                jayakrishnan@sonachala.com
               </a>
             </div>
 
@@ -227,9 +227,9 @@ const Contact = () => {
                 accounts@sonachala.com
               </a>
 
-              {" , "}
+              {/* {" , "} */}
 
-              <a
+              {/* <a
                 href="mailto:reservations@sonachala.com"
                 style={{
                   color: "#1a5dbb",
@@ -239,7 +239,7 @@ const Contact = () => {
                 }}
               >
                 reservations@sonachala.com
-              </a>
+              </a> */}
             </div>
 
             {/* CORP OFFICE */}
@@ -322,7 +322,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                support@sonachala.com
               </a>
             </div>
 
@@ -363,8 +363,7 @@ const Contact = () => {
                 marginBottom: "8px",
               }}
             >
-              54/18, 1st Floor, 8 "F" Main, 3rd Block, Jayanagar,
-              Pondicherry - 605001
+              Sembiampalayam Korkadu Post Pondicherry
             </div>
 
             <div
@@ -397,7 +396,7 @@ const Contact = () => {
               Email -
 
               <a
-                href="mailto:reservations@sonachala.com"
+                href="mailto:support@sonachala.com"
                 style={{
                   color: "#1a5dbb",
                   fontSize: "14px",
@@ -405,7 +404,7 @@ const Contact = () => {
                   textDecoration: "none",
                 }}
               >
-                reservations@sonachala.com
+                support@sonachala.com
               </a>
             </div>
           </div>

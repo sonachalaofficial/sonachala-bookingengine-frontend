@@ -203,7 +203,7 @@ const Footer = () => {
           }}
         >
           {/* LEFT SECTION */}
-          <div className="col-lg-5 col-md-12 mb-3">
+          <div className="col-lg-4 col-md-6 mb-3">
             {/* LOGO */}
             <img
               src={img1}
@@ -220,70 +220,14 @@ const Footer = () => {
                 fontSize: "13px",
                 marginBottom: "18px",
                 lineHeight: "22px",
-                maxWidth: "520px",
+                maxWidth: "420px",
               }}
             >
-              Hrify Technologies private limited provides smart hotel
+              Sonachala Hospitality private limited provides smart hotel
               technology solutions including a powerful booking engine,
               channel management, and revenue optimization tools to help hotels
               increase direct bookings and maximize revenue.
             </div>
-
-            {/* PARTNER LOGOS */}
-            {/* <div
-              className="d-flex flex-wrap align-items-center"
-              style={{
-                gap: "12px",
-                marginBottom: "10px",
-              }}
-            >
-              <div
-                style={{
-                  width: "110px",
-                  height: "50px",
-                  background: "#fff",
-                  borderRadius: "2px",
-                }}
-              />
-
-              <div
-                style={{
-                  width: "110px",
-                  height: "50px",
-                  background: "#fff",
-                  borderRadius: "2px",
-                }}
-              />
-
-              <div
-                style={{
-                  width: "80px",
-                  height: "50px",
-                  background: "#fff",
-                  borderRadius: "2px",
-                }}
-              />
-
-              <div
-                style={{
-                  width: "120px",
-                  height: "50px",
-                  background: "#fff",
-                  borderRadius: "2px",
-                }}
-              />
-            </div> */}
-
-            {/* BIG LOGO */}
-            {/* <img
-              src={img1}
-              alt="Footer Logo"
-              style={{
-                width: "220px",
-                background: "#fff",
-                padding: "5px",
-              }}
-            /> */}
           </div>
 
           {/* CENTER SECTION */}
@@ -304,7 +248,7 @@ const Footer = () => {
                 lineHeight: "24px",
               }}
             >
-              Hrify Technologies private limited
+              Sonachala Hospitality Private Limited
             </div>
 
             <div
@@ -328,10 +272,10 @@ const Footer = () => {
             >
               Email:
               <a
-                href="mailto:sonachaloffical@gmail.com"
+                href="mailto:support@sonachala.com"
                 style={linkStyle}
               >
-                sonachaloffical@gmail.com
+                Support@sonachala.com
               </a>
             </div>
 
@@ -343,10 +287,10 @@ const Footer = () => {
               }}
             >
               <a
-                href="mailto:sonachalahelp@gmail.com"
+                href="mailto:jayakrishnan@sonachala.com"
                 style={linkStyle}
               >
-                sonachalahelp@gmail.com
+                jayakrishnan@sonachala.com
               </a>
             </div>
 
@@ -358,8 +302,8 @@ const Footer = () => {
                 marginBottom: "8px",
               }}
             >
-              <a href="mailto:info@sonachala.com" style={linkStyle}>
-                info@sonachala.com
+              <a href="mailto:ramakrishnan@sonachala.com" style={linkStyle}>
+                ramakrishnan@sonachala.com
               </a>
             </div>
 
@@ -409,7 +353,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/company/jk-kanakku/"
+                href="https://www.instagram.com/sonachala_official?stkn=dnRsc2c1MXNib2t5"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={socialStyle}
@@ -428,8 +372,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* RIGHT SECTION */}
-          <div className="col-lg-4 col-md-6 mb-3">
+          {/* SONACHALA.COM LINKS SECTION */}
+          <div className="col-lg-2 col-md-6 mb-3">
             <h1
               style={{
                 fontSize: "24px",
@@ -504,59 +448,158 @@ const Footer = () => {
                 </Link>
               </p>
             </div>
+          </div>
 
-            {/* PAYMENT IMAGES */}
-            {/* <div
-              className="d-flex flex-wrap justify-content-end"
+          {/* MOBILE APP SHOWCASE (WHERE MARKED) */}
+          <div className="col-lg-3 col-md-6 mb-3">
+            <h1
               style={{
-                gap: "6px",
-                marginTop: "10px",
+                fontSize: "24px",
+                marginBottom: "10px",
+                fontWeight: "400",
               }}
             >
+              Mobile App
+            </h1>
+
+            {/* Phone Container */}
+            <div
+              style={{
+                background: "rgba(0, 0, 0, 0.15)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "16px",
+                padding: "16px",
+                textAlign: "center",
+                maxWidth: "240px",
+              }}
+            >
+              {/* Phone Graphic */}
               <div
                 style={{
-                  width: "70px",
-                  height: "40px",
-                  background: "#fff",
+                  display: "inline-block",
+                  position: "relative",
+                  width: "130px",
+                  background: "linear-gradient(145deg, #1e3a30, #132720)",
+                  borderRadius: "20px",
+                  padding: "8px",
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
+                  border: "2px solid #ffffff44",
+                  textAlign: "center",
+                  marginBottom: "12px",
                 }}
-              />
+              >
+                {/* Notch */}
+                <div
+                  style={{
+                    width: "30px",
+                    height: "4px",
+                    background: "#ffffff44",
+                    borderRadius: "2px",
+                    margin: "0 auto 6px",
+                  }}
+                />
 
-              <div
-                style={{
-                  width: "70px",
-                  height: "40px",
-                  background: "#fff",
-                }}
-              />
+                {/* Inner Screen */}
+                <div
+                  style={{
+                    background: "rgba(255, 255, 255, 0.12)",
+                    borderRadius: "12px",
+                    padding: "14px 6px",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                  }}
+                >
+                  <i className="bi bi-phone-vibrate" style={{ fontSize: "28px", color: "#6ee7b7" }}></i>
+                  <div style={{ fontSize: "12px", fontWeight: "bold", marginTop: "4px", color: "#fff" }}>
+                    Sonachala App
+                  </div>
+                  <div style={{ fontSize: "10px", color: "#a7f3d0", marginTop: "2px" }}>
+                    Stays & Bookings
+                  </div>
+                </div>
 
-              <div
-                style={{
-                  width: "90px",
-                  height: "40px",
-                  background: "#fff",
-                }}
-              />
+                {/* Home bar */}
+                <div
+                  style={{
+                    width: "26px",
+                    height: "3px",
+                    background: "#ffffff44",
+                    borderRadius: "2px",
+                    margin: "6px auto 0",
+                  }}
+                />
+              </div>
 
-              <div
-                style={{
-                  width: "80px",
-                  height: "40px",
-                  background: "#fff",
-                }}
-              />
+              {/* Coming Soon Badge */}
+              <div style={{ marginBottom: "12px" }}>
+                <span
+                  style={{
+                    backgroundColor: "#f59e0b",
+                    color: "#0f172a",
+                    fontSize: "12px",
+                    padding: "5px 14px",
+                    borderRadius: "20px",
+                    fontWeight: "bold",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    boxShadow: "0 2px 8px rgba(245, 158, 11, 0.4)",
+                  }}
+                >
+                  <span
+                    style={{
+                      width: "7px",
+                      height: "7px",
+                      backgroundColor: "#0f172a",
+                      borderRadius: "50%",
+                    }}
+                  />
+                  Coming Soon
+                </span>
+              </div>
 
-              <div
-                style={{
-                  width: "90px",
-                  height: "40px",
-                  background: "#fff",
-                }}
-              />
-            </div> */}
+              {/* App Store / Play Store Preview Buttons */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                <div
+                  style={{
+                    background: "rgba(0, 0, 0, 0.3)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    borderRadius: "8px",
+                    padding: "5px 10px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "11px",
+                    textAlign: "left",
+                  }}
+                >
+                  <i className="bi bi-google-play" style={{ fontSize: "16px", color: "#6ee7b7" }}></i>
+                  <div>
+                    <div style={{ fontSize: "8px", color: "#cbd5e1" }}>GET IT ON</div>
+                    <div style={{ fontWeight: "bold", lineHeight: "1" }}>Google Play</div>
+                  </div>
+                </div>
 
-
-
-
+                <div
+                  style={{
+                    background: "rgba(0, 0, 0, 0.3)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    borderRadius: "8px",
+                    padding: "5px 10px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "11px",
+                    textAlign: "left",
+                  }}
+                >
+                  <i className="bi bi-apple" style={{ fontSize: "18px", color: "#fff" }}></i>
+                  <div>
+                    <div style={{ fontSize: "8px", color: "#cbd5e1" }}>DOWNLOAD ON THE</div>
+                    <div style={{ fontWeight: "bold", lineHeight: "1" }}>App Store</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -570,7 +613,7 @@ const Footer = () => {
         }}
       >
         <div style={{ marginBottom: "8px", fontWeight: "500" }}>
-          Hrify Technologies private limited
+          Sonachala Hospitality private limited
         </div>
 
         Copyright 2026 |

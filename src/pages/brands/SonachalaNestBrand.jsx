@@ -24,14 +24,14 @@ const SonachalaNestBrand = () => {
       <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb">
           <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-          <li className="breadcrumb-item active" aria-current="page">Namma Spot</li>
+          <li className="breadcrumb-item active" aria-current="page">Nanban Rooms</li>
         </ol>
       </nav>
 
       {/* Title (logo removed from here, now overlays the image below) */}
       <div className="row align-items-start mb-4">
         <div className="col-md-6 mb-4">
-          <h1 className="fw-bold mb-1" style={{ color: "#0F8B5F" }}>Namma Spot</h1>
+          <h1 className="fw-bold mb-1" style={{ color: "#0F8B5F" }}>Nanban Rooms</h1>
           <p className="text-muted mb-2" style={{ fontSize: "1.1rem" }}>
             Budget-friendly, youth-focused stays
           </p>
@@ -144,7 +144,7 @@ const SonachalaNestBrand = () => {
         }}
       >
         <h2 className="fw-bold text-center mb-4" style={{ color: "#0F8B5F" }}>
-          Why Choose Namma Spot?
+          Why Choose Nanban Rooms?
         </h2>
         <div className="row g-4">
           {whyChoose.map((item) => (
@@ -193,7 +193,7 @@ const SonachalaNestBrand = () => {
 
       <div className="text-center">
         <Link to="/hotels" className="btn btn-success btn-lg px-5">
-          Browse Namma Spot Stays
+          Browse Nanban Rooms Stays
         </Link>
       </div>
     </div>
