@@ -171,7 +171,7 @@ const SonachalaBrand = () => {
           </div>
         </div>
 
-        <h3 className="fw-bold mb-3">What to expect</h3>
+        {/* <h3 className="fw-bold mb-3">What to expect</h3>
         <div className="row g-4 mb-5">
           <div className="col-md-3">
             <h6 className="fw-bold">Clean & Comfortable Rooms</h6>
@@ -189,7 +189,7 @@ const SonachalaBrand = () => {
             <h6 className="fw-bold">Convenient Location</h6>
             <p className="text-muted small">Easy access to Arunachala and popular local attractions.</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="text-center">
           <Link to="/hotels" className="btn btn-success btn-lg px-5">

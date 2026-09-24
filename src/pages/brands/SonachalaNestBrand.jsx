@@ -171,7 +171,7 @@ const SonachalaNestBrand = () => {
         </div>
       </div>
 
-      <h3 className="fw-bold mb-3">What to expect</h3>
+      {/* <h3 className="fw-bold mb-3">What to expect</h3>
       <div className="row g-4 mb-5">
         <div className="col-md-3">
           <h6 className="fw-bold">Budget-Friendly Rates</h6>
@@ -189,7 +189,7 @@ const SonachalaNestBrand = () => {
           <h6 className="fw-bold">Safe & Secure</h6>
           <p className="text-muted small">24/7 assistance and secure stays for solo and group travellers.</p>
         </div>
-      </div>
+      </div> */}
 
       <div className="text-center">
         <Link to="/hotels" className="btn btn-success btn-lg px-5">

@@ -508,7 +508,17 @@ const Footer = () => {
                     border: "1px solid rgba(255, 255, 255, 0.2)",
                   }}
                 >
-                  <i className="bi bi-phone-vibrate" style={{ fontSize: "28px", color: "#6ee7b7" }}></i>
+                  <img
+                    src={img1}
+                    alt="Sonachala Logo"
+                    style={{
+                      height: "36px",
+                      maxWidth: "85px",
+                      objectFit: "contain",
+                      display: "block",
+                      margin: "0 auto",
+                    }}
+                  />
                   <div style={{ fontSize: "12px", fontWeight: "bold", marginTop: "4px", color: "#fff" }}>
                     Sonachala App
                   </div>
